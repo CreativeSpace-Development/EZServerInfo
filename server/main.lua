@@ -16,18 +16,19 @@ end
 ------------------------------------------------------------------------------------------------
 
 Citizen.CreateThread(function()
-    if Config.ShowWebsite then
+    if Config.ShowWebsite and Config.Website ~= "" or nil then
         SetConvarServerInfo("Website: ", Config.Website)
-    elseif Config.ShowDiscord then
+    elseif Config.ShowDiscord and Config.DiscordInvite ~= "" or nil then
         SetConvarServerInfo("Discord: ", Config.DiscordInvite)
-    elseif Config.ShowTebex then
+    elseif Config.ShowTebex and Config.TebexLink ~= "" or nil then
         SetConvarServerInfo("Store: ", Config.TebexLink)
-    elseif Config.ShowSteam then
+    elseif Config.ShowSteam and Config.SteamRequired ~= "" or nil then
         SetConvarServerInfo("Steam Needed: ", Config.SteamRequired)
-    elseif Config.ShowMic then
+    elseif Config.ShowMic and Config.MicRequired ~= "" or nil then
         SetConvarServerInfo("Mic Required: ", Config.MicRequired)
     end
-    if Config.ShowDevs then
+    
+    if Config.ShowDevs  then
         SetConvarServerInfo("Developers: ", tblCompress(Config.Developers))
     elseif Config.ShowOwners then
         SetConvarServerInfo("Owners: ", tblCompress(Config.Owners))
